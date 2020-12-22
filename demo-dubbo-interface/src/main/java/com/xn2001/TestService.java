@@ -7,5 +7,5 @@ package com.xn2001;
  */
 
 public interface TestService {
-    void saveTest();
+    void sayHi();
 }
