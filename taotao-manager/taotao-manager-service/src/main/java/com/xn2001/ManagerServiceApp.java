@@ -10,7 +10,7 @@ import tk.mybatis.spring.annotation.MapperScan;
  * @Version 1.0
  */
 @SpringBootApplication
-@MapperScan("com.xn2001")
+@MapperScan("com.xn2001.mapper")
 public class ManagerServiceApp {
     public static void main(String[] args) {
         SpringApplication.run(ManagerServiceApp.class, args);

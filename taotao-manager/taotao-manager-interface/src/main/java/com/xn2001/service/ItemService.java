@@ -12,9 +12,17 @@ import com.xn2001.pojo.TaoResult;
 public interface ItemService {
     /**
      * 分页查询商品
+     *
      * @param page
      * @param rows
      * @return
      */
     TaoResult<Item> findByPage(Integer page, Integer rows);
+
+    /**
+     * 新增商品
+     *
+     * @param item
+     */
+    void saveItem(Item item, String desc);
 }

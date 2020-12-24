@@ -1,4 +1,4 @@
-package com.xn2001.Service.impl;
+package com.xn2001.service.impl;
 
 import com.xn2001.TestService;
 import org.apache.dubbo.config.annotation.Service;
