@@ -37,6 +37,14 @@ public class Item extends BasePojo {
     @Column
     private Integer status;
 
+    public String[] getImages(){
+        if (!this.getImage().isEmpty()){
+            String[] images = this.getImage().split(",");
+            return images;
+        }
+        return null;
+    }
+
     public Long getId() {
         return id;
     }

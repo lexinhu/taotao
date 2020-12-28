@@ -16,6 +16,9 @@
         <module>../demo-dubbo-provider</module>
         <module>../demo-dubbo-consumer</module>
         <module>../demo-solr</module>
+        <module>../taotao-search</module>
+        <module>../taotao-search-web</module>
+        <module>../demo-activemq</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
