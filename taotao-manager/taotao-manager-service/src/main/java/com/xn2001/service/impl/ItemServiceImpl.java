@@ -10,6 +10,7 @@ import com.xn2001.service.ItemDescService;
 import com.xn2001.service.ItemService;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsMessagingTemplate;
 
 import java.util.Date;
 
@@ -26,6 +27,9 @@ public class ItemServiceImpl implements ItemService {
 
     @Autowired
     private ItemDescService itemDescService;
+
+    @Autowired
+    private JmsMessagingTemplate jmsMessagingTemplate;
 
     @Override
     public TaoResult<Item> findByPage(Integer page, Integer rows) {
@@ -54,5 +58,8 @@ public class ItemServiceImpl implements ItemService {
         itemDesc.setCreated(item.getCreated());
         itemDesc.setUpdated(item.getCreated());
         itemDescService.saveItemDesc(itemDesc);
+
+        jmsMessagingTemplate.convertAndSend("item",item.getId()+"");
+
     }
 }
