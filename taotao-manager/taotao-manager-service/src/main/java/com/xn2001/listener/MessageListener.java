@@ -60,4 +60,15 @@ public class MessageListener {
         }
 
     }
+
+    @JmsListener(destination = "instockId")
+    public void instockMsg(String id){
+        try {
+            solrClient.deleteById(id);
+            solrClient.commit();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
 }

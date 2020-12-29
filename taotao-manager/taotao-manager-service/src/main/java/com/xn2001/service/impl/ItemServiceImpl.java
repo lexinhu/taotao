@@ -62,4 +62,12 @@ public class ItemServiceImpl implements ItemService {
         jmsMessagingTemplate.convertAndSend("item",item.getId()+"");
 
     }
+
+    @Override
+    public void instockItem(Long id) {
+        Item item = itemMapper.selectByPrimaryKey(id);
+        item.setStatus(2);
+        jmsMessagingTemplate.convertAndSend("instockId",item.getId()+"");
+        itemMapper.updateByPrimaryKey(item);
+    }
 }

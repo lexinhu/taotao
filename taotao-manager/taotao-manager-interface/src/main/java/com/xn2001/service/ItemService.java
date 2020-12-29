@@ -25,4 +25,6 @@ public interface ItemService {
      * @param item
      */
     void saveItem(Item item, String desc);
+
+    void instockItem(Long id);
 }

@@ -4,9 +4,7 @@ import com.xn2001.pojo.Item;
 import com.xn2001.pojo.TaoResult;
 import com.xn2001.service.ItemService;
 import org.apache.dubbo.config.annotation.Reference;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Author 乐心湖
@@ -30,5 +28,11 @@ public class ItemController {
     @PostMapping("/rest/addItem")
     public void addItem(Item item, String desc) {
         itemService.saveItem(item, desc);
+    }
+
+    @RequestMapping(value = "/rest/item/instock",method = RequestMethod.POST)
+    public String instockItem(@RequestParam(value = "ids") Long id){
+        itemService.instockItem(id);
+        return "success";
     }
 }
