@@ -3,8 +3,8 @@ package com.xn2001.service.impl;
 import com.xn2001.mapper.ItemDescMapper;
 import com.xn2001.pojo.ItemDesc;
 import com.xn2001.service.ItemDescService;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 /**
  * @Author 乐心湖
@@ -20,5 +20,12 @@ public class ItemDescServiceImpl implements ItemDescService {
     @Override
     public void saveItemDesc(ItemDesc itemDesc) {
         itemDescMapper.insert(itemDesc);
+    }
+
+    @Override
+    public ItemDesc queryById(Long itemId) {
+        ItemDesc itemDesc = new ItemDesc();
+        itemDesc.setItemId(itemId);
+        return itemDescMapper.selectOne(itemDesc);
     }
 }

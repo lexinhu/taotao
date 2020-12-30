@@ -27,4 +27,6 @@ public interface ItemService {
     void saveItem(Item item, String desc);
 
     void instockItem(Long id);
+
+    Item queryById(Long itemId);
 }

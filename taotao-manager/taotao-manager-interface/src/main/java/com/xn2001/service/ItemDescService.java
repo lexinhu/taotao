@@ -10,4 +10,6 @@ import com.xn2001.pojo.ItemDesc;
 
 public interface ItemDescService {
     void saveItemDesc(ItemDesc itemDesc);
+
+    ItemDesc queryById(Long itemId);
 }
